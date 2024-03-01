@@ -1,5 +1,3 @@
-0
-
 # Wilmec Controller
 
 In this college project, we aim to create a comprehensive system mirroring real-world scenarios, focusing on an Integrated Product Flow and Sales/Inventory Management System. The project's primary objective is to design and implement a robust solution that effectively controls the flow of products from procurement to sales, while simultaneously managing inventory and sales data.
@@ -10,10 +8,10 @@ In this college project, we aim to create a comprehensive system mirroring real-
 
 - Categorias
 
-  - [Registro de Produto](### Registro de Produto)
-  - [Busca de Produtos](###Busca de Produtos)
-  - [Editar Informacoes do produto](### Editar Informações do Produto)
-  - [Fluxo de Vendas](### Fluxo de Vendas)
+  - [Registro de Produto](###Registro-deProduto)
+  - [Busca de Produtos](###Busca-de-Produtos)
+  - [Editar Informacoes do produto](###Editar-Informações-do-Produto)
+  - [Fluxo de Vendas](###Fluxo-de-Vendas)
 
   ***
 
