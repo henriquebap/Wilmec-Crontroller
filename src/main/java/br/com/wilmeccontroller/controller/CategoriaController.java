@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.wilmeccontroller.model.Categoria;
+import br.com.wilmeccontroller.repository.CategoriaRepository;
 import ch.qos.logback.classic.Logger;
 
 @RestController
@@ -26,11 +27,14 @@ public class CategoriaController {
 
     Logger log = (Logger) LoggerFactory.getLogger(getClass());
 
-    List<Categoria> repository = new ArrayList<>();
+//    List<Categoria> repository = new ArrayList<>();
+
+    @Autowired
+    CategoriaRepository repository;
 
     @GetMapping
     public List<Categoria> index() {
-        return repository;
+        return repository.findAll();
     }
 
     @PostMapping

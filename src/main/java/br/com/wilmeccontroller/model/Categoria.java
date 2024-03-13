@@ -1,19 +1,20 @@
 package br.com.wilmeccontroller.model;
 
-import java.util.Random;
 
-public record Categoria(Long id, String nome_prod, String descricao_prod, String cat_prod, String prateleira,
-        int qnt_prod) {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
 
-    public Categoria(Long id, String nome_prod, String descricao_prod, String cat_prod, String prateleira,
-            int qnt_prod) {
-        // Refazendo a mesma solucao do CashFlowPro por enquanto
-        var key = (id != null) ? id : Math.abs(new Random().nextLong());
-        this.id = key;
-        this.nome_prod = nome_prod;
-        this.descricao_prod = descricao_prod;
-        this.cat_prod = cat_prod;
-        this.prateleira = prateleira;
-        this.qnt_prod = qnt_prod;
-    }
+
+@Data
+@Entity
+public class Categoria{
+
+    @Id
+    private Long id;
+    private String nome_prod;
+    private String descricao_prod;
+    private String cat_prod;
+    private String prateleira;
+    private int qnt_prod; 
 }
