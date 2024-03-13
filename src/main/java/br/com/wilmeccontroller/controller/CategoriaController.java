@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.stereotype.Controller;
@@ -37,65 +38,65 @@ public class CategoriaController {
         return repository.findAll();
     }
 
-    @PostMapping
-    public ResponseEntity<Categoria> create(@RequestBody Categoria categoria) {
-        log.info("Cadastrando Categoria: {}", categoria);
-        repository.add(categoria);
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoria);
-    }
+    //@PostMapping
+   // public ResponseEntity<Categoria> create(@RequestBody Categoria categoria) {
+ //       log.info("Cadastrando Categoria: {}", categoria);
+ //       repository.add(categoria);
+ //       return ResponseEntity.status(HttpStatus.CREATED).body(categoria);
+ //   }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Categoria> get(@PathVariable Long id) {
-        log.info("Buscando Categoria com id: {}", id);
+  //  @GetMapping("{id}")
+    //public ResponseEntity<Categoria> get(@PathVariable Long id) {
+      //  log.info("Buscando Categoria com id: {}", id);
 
-        var categoria = getCategoriaById(id);
+       // var categoria = getCategoriaById(id);
 
-        if (categoria.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+       //if (categoria.isEmpty()) {
+         //   return ResponseEntity.notFound().build();
+       // }
 
-        return ResponseEntity.ok(categoria.get());
-    }
+    //    return ResponseEntity.ok(categoria.get());
+  //  }
 
-    private Optional<Categoria> getCategoriaById(Long id) {
-        var categoria = repository
-                .stream()
-                .filter(c -> c.id().equals(id))
-                .findFirst();
-        return categoria;
-    }
+   // private Optional<Categoria> getCategoriaById(Long id) {
+  //      var categoria = repository
+  //              .stream()
+  //              .filter(c -> c.id().equals(id))
+    //            .findFirst();
+  //     return categoria;
+   // }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
-        log.info("Apagando Categoria {} ", id);
+   // @DeleteMapping("{id}")
+   // public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    //    log.info("Apagando Categoria {} ", id);
 
-        var categoria = getCategoriaById(id);
+    //    var categoria = getCategoriaById(id);
 
-        if (categoria.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        repository.remove(categoria.get());
-        return ResponseEntity.noContent().build();
-    }
+       // if (categoria.isEmpty()) {
+       //     return ResponseEntity.notFound().build();
+       // }
+       // repository.remove(categoria.get());
+        //return ResponseEntity.noContent().build();
+    //}
 
-    @PutMapping("{id}")
-    public ResponseEntity<Categoria> update(
-            @PathVariable Long id,
-            @RequestBody Categoria categoria) {
-        log.info("Atualizando categoria com id {} para {}", id, categoria);
+    //@PutMapping("{id}")
+   // public ResponseEntity<Categoria> update(
+    //        @PathVariable Long id,
+   //         @RequestBody Categoria categoria) {
+   //     log.info("Atualizando categoria com id {} para {}", id, categoria);
 
-        var categoria_encontrada = getCategoriaById(id);
+    //    var categoria_encontrada = getCategoriaById(id);
 
-        if (categoria_encontrada.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+    //    if (categoria_encontrada.isEmpty()) {
+      //      return ResponseEntity.notFound().build();
+      //  }
 
-        var categoria_atualizada = new Categoria(id, categoria.nome_prod(), categoria.descricao_prod(), null, null, 0);
+      //  var categoria_atualizada = new Categoria(id, categoria.nome_prod(), categoria.descricao_prod(), null, null, 0);
 
-        repository.remove(categoria_encontrada.get());
+       // repository.remove(categoria_encontrada.get());
 
-        repository.add(categoria_atualizada);
+       // repository.add(categoria_atualizada);
 
-        return ResponseEntity.ok(categoria_atualizada);
-    }
+       // return ResponseEntity.ok(categoria_atualizada);
+   // }
 }
