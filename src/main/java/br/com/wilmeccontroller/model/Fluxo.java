@@ -4,18 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 @Entity
-public class Categoria {
+public class Fluxo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
+
+    @NotBlank
+    @Size(min = 3, max = 255)
     private String nome_prod;
     private String descricao_prod;
-    private String cat_prod;
     private String prateleira;
-    private String qnt_prod;
+
+    @Positive
+    private int qtd_prod;
+
 }
