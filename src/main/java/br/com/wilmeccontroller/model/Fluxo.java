@@ -19,8 +19,8 @@ public class Fluxo {
 
     @NotBlank
     @Size(min = 3, max = 255)
-    private String nome_prod;
-    private String descricao_prod;
+    private String nomeProd;
+    private String descricaoProd;
     private String prateleira;
 
     @Positive
